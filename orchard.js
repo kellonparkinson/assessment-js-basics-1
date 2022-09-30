@@ -59,7 +59,7 @@ const pinkPrice = .55 // $0.55 per pound, maybe this was excessive but whatever
 let totalAcres = 0; // I needed to declare the variable with a number value outside of the loop, or else I was given an error that totalAcres is undefined
 
 for (let i = 0; i < (fujiAcres.length || galaAcres.length || pinkAcres.length); i++) { 
-    totalAcres = totalAcres + (fujiAcres[i] + galaAcres[i] + pinkAcres[i]);
+    totalAcres = totalAcres + ((fujiAcres[i] || 0) + (galaAcres[i] || 0) + (pinkAcres[i] || 0));
 };
 
 // I used || (or) in my stopping condition because I want to make sure that if the arrays happen to be different lengths, the loop will still completely iterate through the longest array.
@@ -90,6 +90,7 @@ let totalDaysPicked = (fujiAcres.length || galaAcres.length || pinkAcres.length)
 
 // I wanted to store the number of days picked as a variable so that I can avoid hard-coding any numbers where possible
 // Again, I decided to use || (or) because I wanted to make sure that I am accounting for the longest array, just in case one happens to be longer
+    // Although I didn't test what would happen with one array being longer
 
 // console.log(totalDaysPicked); 
 //     logged '7' to the console. Math looks correct
