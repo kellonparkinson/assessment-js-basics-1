@@ -181,9 +181,9 @@ let pinkTons = [];
 
 // 1 acre = 6.5 tons
 for (let i = 0; i < (fujiAcres.length || galaAcres.length || pinkAcres.length); i++) {
-    fujiTons.push((fujiAcres[i] * 6.5))
-    galaTons.push((galaAcres[i] * 6.5))
-    pinkTons.push((pinkAcres[i] * 6.5))
+    fujiTons.push((fujiAcres[i] || 0) * 6.5)
+    galaTons.push((galaAcres[i] || 0) * 6.5)
+    pinkTons.push((pinkAcres[i] || 0) * 6.5)
 };
 
 // Used || (or) again in my stopping condition, just to account for the chance that if one array is longer, the loop still iterates through that entire array.
@@ -192,7 +192,22 @@ console.log('Fuji picked, in tons:', fujiTons);
 console.log('Gala picked, in tons:', galaTons);
 console.log('Pink picked, in tons:', pinkTons);
     // Didn't use template literals in these, because I wanted the variables to be logged as arrays, not as strings.
-
+        // Logged
+            // Fuji picked, in tons: [
+            //    13, 19.5, 19.5,
+            //    13,   13,   13,
+            //   6.5
+            // ]
+            // Gala picked, in tons: [
+            //   32.5, 13, 26,
+            //   19.5, 39, 13,
+            //     26
+            // ]
+            // Pink picked, in tons: [
+            //   6.5, 32.5,   26,
+            //    13,  6.5, 32.5,
+            //    26
+            // ]
 
 
 // PROBLEM 5
